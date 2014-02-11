@@ -1,0 +1,36 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{997A5C79-AD3D-4DDA-8122-325D18A1A711}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="UserOra.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="UserOra">
+			<MSBuild Projects="UserOra.dproj"/>
+		</Target>
+		<Target Name="UserOra:Clean">
+			<MSBuild Targets="Clean" Projects="UserOra.dproj"/>
+		</Target>
+		<Target Name="UserOra:Make">
+			<MSBuild Targets="Make" Projects="UserOra.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="UserOra"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="UserOra:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="UserOra:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
